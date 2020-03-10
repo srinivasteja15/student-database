@@ -14,11 +14,7 @@ cur=mydb.cursor()
 s="CREATE TABLE IF NOT EXISTS stdapp(stdno integer(4),stdname varchar(30))"
 cur.execute(s)
 
-
-
 def add():
-    
-    
     try:
       a=int(e1.get())
       b=e2.get()
@@ -41,24 +37,17 @@ def add():
     e2.delete(0,END)
     e3.delete(0,END)
     e1.focus()
-    
-
-
 def closescrn1():
     rt.destroy()
-
 def closescrn2():
     rot.destroy()
 def closescrn3():
     rooot.destroy()
-
 def closescrn4():
     roooot.destroy()
 def closescrn5():
     r.destroy()
-
 def updateemp():
-    
     i=e5.get()
     j=e6.get()
     s="UPDATE stdapp WHERE stdname=%s"
@@ -69,14 +58,11 @@ def updateemp():
         messagebox.showinfo("Error","Not Found")
     else:
         messagebox.showinfo("Done","Successfully Updated rows:"+str(x))
-    
-
     mydb.commit()
     e5.delete(0,END)
     e6.delete(0,END)
     e4.delete(0,END)
     e4.focus()
-
 def search():
     t1.delete("1.0",END)
     s="SELECT * FROM stdapp where stdname LIKE '%s' "
@@ -91,8 +77,6 @@ def search():
         t1.insert(END,"Not Found!")
     else:
         t1.insert(END,st)       
-            
-    
 
 def remove():
     rem=ent.get()
@@ -105,13 +89,7 @@ def remove():
         tet.insert(END,"Not Found")
     else:
         tet.insert(END,"Deleted rows:"+str(x))
-    
-    
-    
-    
     mydb.commit()
-
-
 
 def dotask():
     a=var.get()
@@ -258,7 +236,6 @@ def dotask():
         lbl4=Label(roooot,text="Student Name:",font="Arial 13 bold",fg="white",bg="black")
 
         lbl4.place(x=50,y=135)
-
         
         global e4,e5,e6
         e4=Entry(roooot,width=25)
@@ -311,27 +288,12 @@ def dotask():
         global tet
         tet=Text(r,width=20,height=4,font="Arial 10 bold")
         tet.place(x=125,y=205)
-
-        
+       
     elif a==6:
          ans=messagebox.askyesno("Quitting","Are you sure you want to Quit")
          if ans==True:
              global root
              root.destroy()
-            
-         
-
-        
-
-
-        
-
-
-        
-        
-        
-        
- 
 
 root = Tk()
 root.title("Employee Management System")
@@ -349,35 +311,25 @@ root.configure(bg="black")
 lbl1=Label(root,text=" Select   Your   Choice ",relief="ridge",font="Arial 18 bold",bg="black",fg="white")
 lbl1.place(x=140,y=20)
 
-
 var = IntVar()
 R1 = Radiobutton(root, variable=var,bg="black", value=1,command=dotask)
 R1.place(x=160,y=100)
-
-
 R2 = Radiobutton(root, variable=var,bg="black", value=2,command=dotask)
-
 R2.place(x=160,y=160)
 R3 = Radiobutton(root, variable=var,bg="black", value=3,command=dotask)
 R3.place(x=160,y=220)
-
 R4 = Radiobutton(root, variable=var,bg="black", value=4,command=dotask)
 R4.place(x=160,y=280)
 R5 = Radiobutton(root, variable=var,bg="black", value=5,command=dotask)
 R5.place(x=160,y=340)
-
 R6 = Radiobutton(root, variable=var,bg="black", value=6,command=dotask)
-
 R6.place(x=160,y=400)
-
 
 lbl2=Label(root,text="Add  Employee",font="Arial 15 bold",bg="black",fg="white")
 lbl2.place(x=190,y=100)
 
-
 lbl3=Label(root,text="Search  Employee",font="Arial 15 bold",bg="black",fg="white")
 lbl3.place(x=190,y=160)
-
 
 lbl4=Label(root,text="Show All Employees",font="Arial 15 bold",bg="black",fg="white")
 lbl4.place(x=190,y=220)
@@ -388,15 +340,7 @@ lbl5.place(x=190,y=280)
 lbl6=Label(root,text="Delete  Employee",font="Arial 15 bold",bg="black",fg="white")
 lbl6.place(x=190,y=340)
 
-
 lbl7=Label(root,text="Quit",font="Arial 15 bold",bg="black",fg="white")
 lbl7.place(x=190,y=400)
-
-
-
-
-
-
-
 
 root.mainloop()
